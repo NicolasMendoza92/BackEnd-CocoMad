@@ -19,7 +19,7 @@ const paymentRoutes = require('./routes/paymentRoute');
 
 // Importante el orden de las funciones!!! 
 
-const whiteList = ["http://localhost:3000", "https://coco-mad-react.vercel.app","https://coco-mad-react-git-main-nicolasmendoza92.vercel.app" ]
+const whiteList = ["https://coco-mad-react.vercel.app" ]
 var corsOptions = {origin:whiteList}
 
 // crear el servidor
