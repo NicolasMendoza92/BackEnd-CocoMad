@@ -19,8 +19,13 @@ const paymentRoutes = require('./routes/paymentRoute');
 
 // Importante el orden de las funciones!!! 
 
-const whiteList = ['http://localhost:3000']
-var corsOptions = {origin:whiteList}
+// const whiteList = ['http://localhost:3000']
+var corsOptions = {
+  "origin": "*",
+  "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
+  "preflightContinue": false,
+  "optionsSuccessStatus": 204,
+}
 
 // crear el servidor
 const app = express();
@@ -38,8 +43,8 @@ app.use(express.json({ extended: true }));
 app.use(express.urlencoded({ extended: true }));
 
 // codigos para la subida de imagen
-app.use(bodyParser.json({limit: '500mb'}));
-app.use(bodyParser.urlencoded({limit: '500mb', extended: true, parameterLimit:50000}));
+app.use(bodyParser.json({ limit: '500mb' }));
+app.use(bodyParser.urlencoded({ limit: '500mb', extended: true, parameterLimit: 50000 }));
 app.use(bodyParser.text({ limit: '200mb' }));
 app.use(express.json());
 
@@ -57,5 +62,5 @@ app.use('/api/payment', paymentRoutes);
 
 // puerto y arranque del servidor
 app.listen(process.env.PORT || 4000, () => {
-    console.log('Servidor Funcionando');
-  })
+  console.log('Servidor Funcionando');
+})
