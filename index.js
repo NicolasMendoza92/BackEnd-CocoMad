@@ -19,12 +19,12 @@ const paymentRoutes = require('./routes/paymentRoute');
 
 // Importante el orden de las funciones!!! 
 
-// const whiteList = ['http://localhost:3000']
+const whiteList = ['http://localhost:3000','https://coco-mad-react.vercel.app']
 var corsOptions = {
-  "origin": "*",
-  "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
-  "preflightContinue": false,
+  "origin": whiteList,
   "optionsSuccessStatus": 204,
+  "credentials": true,
+  "Access-Control-Allow-Origin":"*", 
 }
 
 // crear el servidor
